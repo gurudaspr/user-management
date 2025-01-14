@@ -14,7 +14,8 @@ const Login = () => {
     const navigate = useNavigate();
     const { login } = useAuth();
 
-    const { loginEmployee } = useEmployeeDB();
+    const { loginEmployee ,updateLastLogin} = useEmployeeDB();
+
 
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(
@@ -33,6 +34,7 @@ const Login = () => {
             console.log(res, 'res');     
             if (res.success) {
                 toast.success('Login successful!');
+                await updateLastLogin(res.employee.id);
                 navigate('/');
                 login()
             }

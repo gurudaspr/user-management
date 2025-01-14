@@ -1,38 +1,61 @@
-import React, { useEffect, useState } from 'react';
-import { useEmployeeDB } from '../../hooks/useDB';
+import React, { useState, useEffect } from 'react';
 import UserCard from './UserCard';
+import { useEmployeeDB } from '../../hooks/useDB';
 
-const UserList = () => {
-    const { getAllEmployees } = useEmployeeDB();
-    const [employees, setEmployees] = useState([]);
-    const [loading, setLoading] = useState(true);
+const EmployeeList = () => {
+  const [employees, setEmployees] = useState([])
+  const { toggleBlock, getAllEmployees } = useEmployeeDB();
 
-    useEffect(() => {
-        const fetchEmployees = async () => {
-            try {
-                const employeeList = await getAllEmployees();
-                setEmployees(employeeList);
-                console.log('Employees fetched:', employeeList);
-            } catch (error) {
-                console.error('Error fetching employees:', error.message);
-            } finally {
-                setLoading(false);
-            }
-        };
+  useEffect(() => {
+    const fetchEmployees = async () => {
+      const fetchedEmployees = await getAllEmployees();
+      setEmployees(fetchedEmployees);
+    };
+    fetchEmployees();
+  }, []);
 
-        fetchEmployees();
-    }, []);
+  const handleBlock = (id) => {
+    toggleBlock(id).then(() => {
+      setEmployees((prevEmployees) =>
+        prevEmployees.map((emp) =>
+          emp.id === id ? { ...emp, isBlocked: true } : emp
+        )
+      );
+    });
+  };
 
-    return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold text-gray-800 mb-6">Employee List</h1>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
-                {employees.map((employee) => (
-                    <UserCard key={employee.id} user={employee} />
-                ))}
-            </div>
-        </div>
-    );
+  const handleUnblock = (id) => {
+    toggleBlock(id).then(() => {
+      setEmployees((prevEmployees) =>
+        prevEmployees.map((emp) =>
+          emp.id === id ? { ...emp, isBlocked: false } : emp
+        )
+      );
+    });
+  };
+
+  const handleEdit = (user) => {
+    console.log('Edit user:', user);
+  };
+
+  const handleDelete = (user) => {
+    console.log('Delete user:', user);
+  };
+
+  return (
+    <div>
+      {employees.map((user) => (
+        <UserCard
+          key={user.id}
+          user={user}
+          onEdit={() => handleEdit(user)}
+          onDelete={() => handleDelete(user)}
+          onBlock={handleBlock}
+          onUnblock={handleUnblock} 
+        />
+      ))}
+    </div>
+  );
 };
 
-export default UserList;
+export default EmployeeList;

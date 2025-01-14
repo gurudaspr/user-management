@@ -3,11 +3,11 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(null);
 
   useEffect(() => {
     const loggedInStatus = localStorage.getItem('isLoggedIn') === 'true';
-    setIsAuth(loggedInStatus);
+    setIsAuth(loggedInStatus); 
   }, []);
 
   const login = () => {
@@ -19,6 +19,9 @@ export const AuthProvider = ({ children }) => {
     setIsAuth(false);
     localStorage.removeItem('isLoggedIn');
   };
+  if (isAuth === null) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <AuthContext.Provider value={{ isAuth, login, logout }}>
