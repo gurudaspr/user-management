@@ -78,34 +78,40 @@ const Register = () => {
                             {step === 1 && (
                                 <>
                                     <div>
+                                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
                                         <input
                                             {...register('name')}
+                                            id="name"
                                             placeholder="Name"
                                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         />
-                                        {errors.name && <p className=" absolute  text-red-500 text-xs ml-2">{errors.name.message}</p>}
+                                        {errors.name && <p className="absolute text-red-500 text-xs ml-2">{errors.name.message}</p>}
                                     </div>
 
                                     <div>
+                                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                                         <input
                                             {...register('email')}
+                                            id="email"
                                             placeholder="Email"
                                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         />
-                                        {errors.email && <p className=" absolute  text-red-500 text-xs ml-2">{errors.email.message}</p>}
+                                        {errors.email && <p className="absolute text-red-500 text-xs ml-2">{errors.email.message}</p>}
                                     </div>
 
                                     <div className="relative">
+                                        <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">Password</label>
                                         <input
                                             {...register('password')}
+                                            id="password"
                                             type={showPassword ? "text" : "password"}
                                             placeholder="Password"
                                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         />
-                                        {errors.password && <p className="absolute  text-red-500  text-xs ml-2">{errors.password.message}</p>}
+                                        {errors.password && <p className="absolute text-red-500 text-xs ml-2">{errors.password.message}</p>}
                                         <button
                                             type="button"
-                                            className="absolute right-3 top-2.5"
+                                            className="absolute right-3 top-9"
                                             onClick={() => setShowPassword(!showPassword)}
                                         >
                                             {showPassword ? <FaEyeSlash className="h-5 w-5 text-gray-600" /> : <FaEye className="h-5 w-5 text-gray-600" />}
@@ -113,16 +119,18 @@ const Register = () => {
                                     </div>
 
                                     <div className="relative">
+                                        <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
                                         <input
                                             {...register('confirmPassword')}
+                                            id="confirmPassword"
                                             type={showConfirmPassword ? "text" : "password"}
                                             placeholder="Confirm Password"
                                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         />
-                                        {errors.confirmPassword && <p className=" absolute  ml-2 text-red-500 text-xs">{errors.confirmPassword.message}</p>}
+                                        {errors.confirmPassword && <p className="absolute text-red-500 text-xs ml-2">{errors.confirmPassword.message}</p>}
                                         <button
                                             type="button"
-                                            className="absolute right-3 top-2.5"
+                                            className="absolute right-3 top-9"
                                             onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                                         >
                                             {showConfirmPassword ? <FaEyeSlash className="h-5 w-5 text-gray-600" /> : <FaEye className="h-5 w-5 text-gray-600" />}
@@ -149,8 +157,10 @@ const Register = () => {
                             {step === 2 && (
                                 <>
                                     <div>
+                                        <label htmlFor="department" className="block text-sm font-medium text-gray-700 mb-1">Department</label>
                                         <select
                                             {...register('department')}
+                                            id="department"
                                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         >
                                             <option value="">Select Department</option>
@@ -158,12 +168,14 @@ const Register = () => {
                                                 <option key={index} value={department}>{department}</option>
                                             ))}
                                         </select>
-                                        {errors.department && <p className=" absolute text-xs ml-2 text-red-500">{errors.department.message}</p>}
+                                        {errors.department && <p className="absolute text-xs ml-2 text-red-500">{errors.department.message}</p>}
                                     </div>
 
                                     <div>
+                                        <label htmlFor="designation" className="block text-sm font-medium text-gray-700 mb-1">Designation</label>
                                         <select
                                             {...register('designation')}
+                                            id="designation"
                                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         >
                                             <option value="">Select Designation</option>
@@ -171,30 +183,32 @@ const Register = () => {
                                                 <option key={index} value={designation}>{designation}</option>
                                             ))}
                                         </select>
-                                        {errors.designation && <p className="absolute text-xs ml-2 text-red-500 ">{errors.designation.message}</p>}
+                                        {errors.designation && <p className="absolute text-xs ml-2 text-red-500">{errors.designation.message}</p>}
                                     </div>
 
                                     <div>
+                                        <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">City</label>
                                         <input
                                             {...register('city')}
+                                            id="city"
                                             placeholder="City"
                                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         />
-                                        {errors.city && <p className="absolute  text-xs ml-2 text-red-500 ">{errors.city.message}</p>}
+                                        {errors.city && <p className="absolute text-xs ml-2 text-red-500">{errors.city.message}</p>}
                                     </div>
 
-                                    <div className="flex  justify-between items-center mt-4 ">
+                                    <div className="flex justify-between items-center mt-4">
                                         <button
                                             type="button"
                                             onClick={() => setStep(1)}
-                                            className="w-full md:w-32   mx-auto h-12 bg-gray-400 text-white rounded-full hover:bg-slate-950 transition-colors flex items-center justify-center"
+                                            className="w-full md:w-32 mx-auto h-12 bg-gray-400 text-white rounded-full hover:bg-slate-950 transition-colors flex items-center justify-center"
                                         >
                                             Back
                                         </button>
 
                                         <button
                                             type="submit"
-                                            className="w-full md:w-32 mx-4 md:mx-auto  h-12 bg-slate-900 text-white rounded-full hover:bg-slate-950 transition-colors flex items-center justify-center"
+                                            className="w-full md:w-32 mx-4 md:mx-auto h-12 bg-slate-900 text-white rounded-full hover:bg-slate-950 transition-colors flex items-center justify-center"
                                         >
                                             {loading ? (
                                                 <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -205,6 +219,7 @@ const Register = () => {
                                     </div>
                                 </>
                             )}
+
                             <div className="text-center">
                                 <span className="text-sm text-gray-600">Already have an account? </span>
                                 <a href="/login" className="text-sm text-blue-500 hover:text-blue-700 transition-colors">

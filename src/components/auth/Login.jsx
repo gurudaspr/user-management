@@ -14,7 +14,7 @@ const Login = () => {
     const navigate = useNavigate();
     const { login } = useAuth();
 
-    const { loginEmployee ,updateLastLogin} = useEmployeeDB();
+    const { loginEmployee, updateLastLogin } = useEmployeeDB();
 
 
     const { register, handleSubmit, formState: { errors } } = useForm({
@@ -31,7 +31,7 @@ const Login = () => {
         setLoading(true);
         try {
             const res = await loginEmployee(data.email, data.password);
-            console.log(res, 'res');     
+            console.log(res, 'res');
             if (res.success) {
                 toast.success('Login successful!');
                 await updateLastLogin(res.employee.id);
@@ -59,8 +59,10 @@ const Login = () => {
                     <div className="p-6">
                         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                             <div>
+                                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                                 <input
                                     {...register('email')}
+                                    id="email"
                                     type="email"
                                     placeholder="Email"
                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -69,8 +71,10 @@ const Login = () => {
                             </div>
 
                             <div className="relative">
+                                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">Password</label>
                                 <input
                                     {...register('password')}
+                                    id="password"
                                     type={showPassword ? "text" : "password"}
                                     placeholder="Password"
                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -78,7 +82,7 @@ const Login = () => {
                                 {errors.password && <p className="absolute text-red-500 text-xs ml-2">{errors.password.message}</p>}
                                 <button
                                     type="button"
-                                    className="absolute right-3 top-2.5"
+                                    className="absolute right-3 top-9"
                                     onClick={() => setShowPassword(!showPassword)}
                                 >
                                     {showPassword ? <FaEyeSlash className="h-5 w-5 text-gray-600" /> : <FaEye className="h-5 w-5 text-gray-600" />}

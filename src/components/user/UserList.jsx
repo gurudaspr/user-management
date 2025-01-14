@@ -5,6 +5,7 @@ import { useEmployeeDB } from '../../hooks/useDB';
 import AddEmployeeForm from './AddEmployeeForm';
 import EditEmployeeForm from './EditEmployeeForm';
 import { Tooltip } from 'react-tippy';
+import { toast } from 'react-toastify';
 
 const EmployeeList = () => {
     const [employees, setEmployees] = useState([]);
@@ -57,6 +58,7 @@ const EmployeeList = () => {
                 setEmployees((prevEmployees) =>
                     prevEmployees.filter((emp) => emp.id !== employee.id)
                 );
+                toast.success('Employee deleted successfully!');
             } catch (error) {
                 console.error("Error deleting employee:", error);
             }
