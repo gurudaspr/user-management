@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useEmployeeDB } from '../hooks/useDB';
+import { useEmployeeDB } from '../../hooks/useDB';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 

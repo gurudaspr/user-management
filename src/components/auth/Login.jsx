@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useEmployeeDB } from '../hooks/useDB';
+import { useEmployeeDB } from '../../hooks/useDB';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);

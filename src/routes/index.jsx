@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
-import Login from "../components/Login";
+import Login from "../components/auth/Login";
 import UserLayout from "../layout/UserLayout";
-import Register from "../components/Register";
+import Register from "../components/auth/Register";
+import UserList from "../components/common/UserCard";
 
 
 
@@ -22,7 +23,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <h1>Dashboard</h1>
+                element: <UserList />
             },
 
         ],
