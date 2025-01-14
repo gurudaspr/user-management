@@ -151,13 +151,13 @@ const AddEmployeeForm = ({ isOpen, onClose, onSubmitAction, onEmployeeAdded }) =
                         <button
                             type="button"
                             onClick={onClose}
-                            className="w-full md:w-32 mx-auto h-12 bg-gray-400 text-white rounded-full hover:bg-gray-500 transition-colors"
+                            className="w-full md:w-32 mx-4 md:mx-auto h-12 bg-gray-400 text-white rounded-full hover:bg-gray-500 transition-colors"
                         >
                             Cancel
                         </button>
                         <button
                             type="submit"
-                            className="w-full md:w-32 mx-auto h-12 bg-slate-900 text-white rounded-full hover:bg-slate-950 transition-colors"
+                            className="w-full md:w-32 mx-4 md:mx-auto  h-12 bg-slate-900 text-white rounded-full hover:bg-slate-950 transition-colors"
                         >
                             Add
                         </button>

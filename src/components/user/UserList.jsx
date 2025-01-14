@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import { FaEdit, FaTrashAlt, FaLock, FaUnlock, FaPlus } from 'react-icons/fa';
 import { useEmployeeDB } from '../../hooks/useDB';
-import EmployeeFormModal from './EmployeeForm';
 import AddEmployeeForm from './AddEmployeeForm';
 import EditEmployeeForm from './EditEmployeeForm';
+import { Tooltip } from 'react-tippy';
 
 const EmployeeList = () => {
     const [employees, setEmployees] = useState([]);
@@ -128,28 +128,38 @@ const EmployeeList = () => {
                             </div>
 
                             <div className="mt-6 flex justify-between space-x-2">
-                                <button
-                                    onClick={() => handleEdit(employee)}
-                                    className="px-4 py-2 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 transition"
+                                <Tooltip title="Edit" position="top" trigger="mouseenter">
+                                    <button
+                                        onClick={() => handleEdit(employee)}
+                                        className="px-4 py-2 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 transition"
+                                    >
+                                        <FaEdit />
+                                    </button>
+                                </Tooltip>
+                                <Tooltip title="Delete" position="top" trigger="mouseenter">
+                                    <button
+                                        onClick={() => handleDelete(employee)}
+                                        className="px-4 py-2 rounded-lg bg-red-500 text-white font-semibold hover:bg-red-600 transition"
+                                    >
+                                        <FaTrashAlt />
+                                    </button>
+                                </Tooltip>
+                                <Tooltip
+                                    title={employee.isBlocked ? "Unblock" : "Block"}
+                                    position="top"
+                                    trigger="mouseenter"
                                 >
-                                    <FaEdit />
-                                </button>
-                                <button
-                                    onClick={() => handleDelete(employee)}
-                                    className="px-4 py-2 rounded-lg bg-red-500 text-white font-semibold hover:bg-red-600 transition"
-                                >
-                                    <FaTrashAlt />
-                                </button>
-                                <button
-                                    onClick={() => handleBlock(employee)}
-                                    className={`px-4 py-2 rounded-lg text-white font-semibold transition
-                    ${employee.isBlocked
-                                            ? 'bg-green-500 hover:bg-green-600'
-                                            : 'bg-yellow-500 hover:bg-yellow-600'
-                                        }`}
-                                >
-                                    {employee.isBlocked ? <FaUnlock /> : <FaLock />}
-                                </button>
+                                    <button
+                                        onClick={() => handleBlock(employee)}
+                                        className={`px-4 py-2 rounded-lg text-white font-semibold transition
+                        ${employee.isBlocked
+                                                ? 'bg-green-500 hover:bg-green-600'
+                                                : 'bg-yellow-500 hover:bg-yellow-600'
+                                            }`}
+                                    >
+                                        {employee.isBlocked ? <FaUnlock /> : <FaLock />}
+                                    </button>
+                                </Tooltip>
                             </div>
                         </div>
                     );

@@ -183,18 +183,18 @@ const Register = () => {
                                         {errors.city && <p className="absolute  text-xs ml-2 text-red-500 ">{errors.city.message}</p>}
                                     </div>
 
-                                    <div className="flex justify-between items-center mt-4">
+                                    <div className="flex  justify-between items-center mt-4 ">
                                         <button
                                             type="button"
                                             onClick={() => setStep(1)}
-                                            className="w-full md:w-32  mx-auto h-12 bg-gray-400 text-white rounded-full hover:bg-slate-950 transition-colors flex items-center justify-center"
+                                            className="w-full md:w-32   mx-auto h-12 bg-gray-400 text-white rounded-full hover:bg-slate-950 transition-colors flex items-center justify-center"
                                         >
                                             Back
                                         </button>
 
                                         <button
                                             type="submit"
-                                            className="w-full md:w-32 mx-auto h-12 bg-slate-900 text-white rounded-full hover:bg-slate-950 transition-colors flex items-center justify-center"
+                                            className="w-full md:w-32 mx-4 md:mx-auto  h-12 bg-slate-900 text-white rounded-full hover:bg-slate-950 transition-colors flex items-center justify-center"
                                         >
                                             {loading ? (
                                                 <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
