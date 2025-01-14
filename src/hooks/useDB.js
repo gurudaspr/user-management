@@ -37,6 +37,9 @@ export const useEmployeeDB = () => {
       if (!employee) {
         throw new Error("No employee found with this email.");
       }
+      if (employee.isBlocked) {
+        throw new Error("Account is blocked");
+      }
   
       const passwordMatches = bcrypt.compareSync(password, employee.password);
   
@@ -90,11 +93,43 @@ export const useEmployeeDB = () => {
     }
   };
 
+  const deleteEmployee = async (id) => {
+    try {
+      const employee = await getByID(id);
+      if (!employee) {
+        throw new Error("Employee not found");
+      }
+      await deleteRecord(id);
+      console.log("Employee deleted successfully");
+    } catch (error) {
+      console.error("Error deleting employee:", error);
+      throw error;
+    }
+  };
+
+  const updateEmployee = async (id, employeeData) => {
+    try {
+      const employee = await getByID(id);
+      if (!employee) {
+        throw new Error("Employee not found");
+      }
+      const updatedEmployee = { ...employee, ...employeeData };
+      await update(updatedEmployee);
+  
+      console.log("Employee updated successfully");
+    } catch (error) {
+      console.error("Error updating employee:", error);
+      throw error;
+    }
+  };
+
   return {
     addEmployee,
     loginEmployee,
     getAllEmployees,
     updateLastLogin,
-    toggleBlock
+    toggleBlock,
+    deleteEmployee,
+    updateEmployee
   };
 };
