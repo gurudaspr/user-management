@@ -1,54 +1,51 @@
-Employee Management
+# Employee Management
+
 A simple and efficient React-based Employee Management application for managing employee details.
 
-Features
-Add, Edit, and Delete Employees: Manage employee details effortlessly.
-Form Validation: Secure and user-friendly form validation using react-hook-form and yup.
-Offline Support: Store and retrieve data offline with IndexedDB.
-Responsive UI: Built with Tailwind CSS for modern and mobile-friendly design.
-Getting Started
+## Features
+
+- **Add, Edit, and Delete Employees:** Manage employee details effortlessly
+- **Form Validation:** Secure and user-friendly form validation using react-hook-form and yup
+- **Offline Support:** Store and retrieve data offline with IndexedDB
+- **Responsive UI:** Built with Tailwind CSS for modern and mobile-friendly design
+
+## Getting Started
+
 Follow these instructions to set up the project on your local machine.
 
-Prerequisites
+### Prerequisites
+
 Ensure you have the following installed on your system:
+- Node.js (version 16 or later)
+- npm (Node Package Manager)
 
-Node.js (version 16 or later)
-npm (Node Package Manager)
-Installation
-Clone the repository:
+### Installation
 
-bash
-Copy code
-git clone https://github.com/your-username/employee-management.git
-Navigate to the project directory:
+1. Clone the repository:
+`git clone https://github.com/your-username/employee-management.git`
 
-bash
-Copy code
-cd employee-management
-Install the dependencies:
+2. Navigate to the project directory:
+`cd employee-management`
 
-bash
-Copy code
-npm install
-Start the development server:
+3. Install the dependencies:
+`npm install`
 
-bash
-Copy code
-npm run dev
-Open your browser and visit:
+4. Start the development server:
+`npm run dev`
 
-arduino
-Copy code
-http://localhost:5173
-Scripts
-bash
-Copy code
-npm run dev      # Start the development server
-npm run build    # Build the application for production
-npm run preview  # Preview the production build
-npm run lint     # Run ESLint to check for code issues
-Technologies Used
-Frontend: React, Tailwind CSS
-Routing: React Router DOM
-Form Handling: React Hook Form, Yup
-Storage: IndexedDB with react-indexed-db
+5. Open your browser and visit:
+`http://localhost:5173`
+
+## Available Scripts
+
+`npm run dev      # Start the development server`
+`npm run build    # Build the application for production`
+`npm run preview  # Preview the production build`
+`npm run lint     # Run ESLint to check for code issues`
+
+## Technologies Used
+
+- **Frontend:** React, Tailwind CSS
+- **Routing:** React Router DOM
+- **Form Handling:** React Hook Form, Yup
+- **Storage:** IndexedDB with react-indexed-db
