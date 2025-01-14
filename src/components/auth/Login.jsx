@@ -88,10 +88,10 @@ const Login = () => {
                                     {showPassword ? <FaEyeSlash className="h-5 w-5 text-gray-600" /> : <FaEye className="h-5 w-5 text-gray-600" />}
                                 </button>
                             </div>
-
+                            <div className="flex justify-center items-center mt-4">
                             <button
                                 type="submit"
-                                className="w-full h-12 bg-slate-900 text-white rounded-full hover:bg-slate-950 transition-colors flex items-center justify-center"
+                                className="w-full md:w-32  h-12 bg-slate-900 text-white rounded-full hover:bg-slate-950 transition-colors flex items-center justify-center"
                             >
                                 {loading ? (
                                     <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -99,6 +99,7 @@ const Login = () => {
                                     "Login"
                                 )}
                             </button>
+                            </div>
 
                             <div className="text-center">
                                 <span className="text-sm text-gray-600">Don&apos;t have an account? </span>
