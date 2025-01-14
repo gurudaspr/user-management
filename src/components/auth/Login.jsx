@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import * as Yup from 'yup';
@@ -101,7 +101,7 @@ const Login = () => {
                             </button>
 
                             <div className="text-center">
-                                <span className="text-sm text-gray-600">Don't have an account? </span>
+                                <span className="text-sm text-gray-600">Don&apos;t have an account? </span>
                                 <a href="/register" className="text-sm text-blue-500 hover:text-blue-700 transition-colors">
                                     Register
                                 </a>
