@@ -6,8 +6,8 @@ const UserCard = ({ user }) => {
     ? new Date(user.logins[user.logins.length - 1]).toLocaleString() 
     : 'N/A';
 
-  return (
-    <div className="bg-white border rounded-lg shadow-md p-6 w-full max-w-sm">
+  return ( 
+    <div className="bg-white w-full md:min-w-96 border rounded-lg shadow-md p-6 max-w-sm">
       <h2 className="text-xl font-bold text-gray-800">{user.name}</h2>
       <p className="text-gray-600 mt-2">
         <strong>Email:</strong> {user.email}
@@ -30,4 +30,5 @@ const UserCard = ({ user }) => {
     </div>
   );
 };
+export default UserCard;
 

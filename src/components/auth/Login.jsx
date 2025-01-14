@@ -6,11 +6,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useEmployeeDB } from '../../hooks/useDB';
+import { useAuth } from '../../context/authContext';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     const { loginEmployee } = useEmployeeDB();
 
@@ -32,6 +34,7 @@ const Login = () => {
             if (res.success) {
                 toast.success('Login successful!');
                 navigate('/');
+                login()
             }
         } catch (error) {
             toast.error(error.message || 'An error occurred');

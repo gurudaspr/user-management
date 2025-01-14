@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "../components/auth/Login";
 import UserLayout from "../layout/UserLayout";
 import Register from "../components/auth/Register";
+import UserList from "../components/user/UserList";
+import { ProtectedRoute } from "./ProtectedRoute";
 
 
 
@@ -22,7 +24,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <h1>Dashboard</h1>
+                element: <ProtectedRoute><UserList/></ProtectedRoute>
             },
 
         ],
