@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useEmployeeDB } from '../../hooks/useDB';
 import { useAuth } from '../../context/authContext';
@@ -103,9 +103,9 @@ const Login = () => {
 
                             <div className="text-center">
                                 <span className="text-sm text-gray-600">Don&apos;t have an account? </span>
-                                <a href="/register" className="text-sm text-blue-500 hover:text-blue-700 transition-colors">
+                                <Link to="/register" className="text-sm text-blue-500 hover:text-blue-700 transition-colors">
                                     Register
-                                </a>
+                                </Link>
                             </div>
                         </form>
                     </div>

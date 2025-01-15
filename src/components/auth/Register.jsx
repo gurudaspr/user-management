@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useEmployeeDB } from '../../hooks/useDB';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const [loading, setLoading] = useState(false);
@@ -222,9 +222,9 @@ const Register = () => {
 
                             <div className="text-center">
                                 <span className="text-sm text-gray-600">Already have an account? </span>
-                                <a href="/login" className="text-sm text-blue-500 hover:text-blue-700 transition-colors">
+                                <Link to="/login" className="text-sm text-blue-500 hover:text-blue-700 transition-colors">
                                     Login
-                                </a>
+                                </Link>
                             </div>
                         </form>
                     </div>
